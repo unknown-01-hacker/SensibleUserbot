@@ -51,7 +51,7 @@ if Var.PRIVATE_GROUP_ID is not None:
                 await asyncio.sleep(3)
                 await event.delete()
 
-@command(events.NewMessage(outgoing=True))
+@client.on(events.NewMessage(outgoing=True))
 async def on_outgoing_msg(event):
 if not chat.id in PM_WARNS:
 pmpermit_sql.approve(chat.id, "outgoing")
