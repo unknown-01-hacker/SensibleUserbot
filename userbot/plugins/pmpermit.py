@@ -53,12 +53,12 @@ if Var.PRIVATE_GROUP_ID is not None:
 
 @client.on(events.NewMessage(outgoing=True))
 async def on_outgoing_msg(event):
-if not chat.id in PM_WARNS:
-pmpermit_sql.approve(chat.id, "outgoing")
-ai = "Sensible Userbot AI Permitted This User To Ib Because Outgoing Messege"
-event = await borg.send_message(event.chat_id, ai)
-await asyncio.sleep(3)
-await event.delete()
+ :if not chat.id in PM_WARNS:
+ pmpermit_sql.approve(chat.id, "outgoing")
+ ai = "Sensible Userbot AI Permitted This User To Ib Because Outgoing Messege"
+ event = await borg.send_message(event.chat_id, ai)
+ await asyncio.sleep(3)
+ await event.delete()
 
 
 
