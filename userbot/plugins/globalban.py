@@ -1,6 +1,5 @@
 from userbot import bot, BOTLOG_CHATID, ALIVE_NAME, CMD_LIST
 import asyncio
-import userbot.plugins.sql_helper.globals
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import (PeerChat, PeerChannel,ChannelParticipantsAdmins, ChatAdminRights,ChatBannedRights, MessageEntityMentionName,MessageMediaPhoto, ChannelParticipantsBots)
