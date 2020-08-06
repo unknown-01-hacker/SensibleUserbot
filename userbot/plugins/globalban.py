@@ -1,4 +1,4 @@
-from userbot import bot, BOTLOG_CHATID, ALIVE_NAME, JAVES_MSG, CMD_LIST
+from userbot import bot, BOTLOG_CHATID, ALIVE_NAME, CMD_LIST
 import asyncio
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
@@ -8,7 +8,7 @@ from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
 from userbot.events import rekcah05
 client = javes = bot 
 from telethon.tl.functions.messages import GetCommonChatsRequest
-JAVES_NNAME = str(ALIVE_NAME) if ALIVE_NAME else str(JAVES_MSG)
+JAVES_NNAME = str(ALIVE_NAME) 
 from telethon.events import ChatAction
 
 #@bot.on(rekcah05(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
