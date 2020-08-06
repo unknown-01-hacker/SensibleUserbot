@@ -1,6 +1,6 @@
 from userbot import bot, BOTLOG_CHATID, ALIVE_NAME, CMD_LIST
 import asyncio
-from userbot.plugins.sql_helper.globals
+import userbot.plugins.sql_helper.globals
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import (PeerChat, PeerChannel,ChannelParticipantsAdmins, ChatAdminRights,ChatBannedRights, MessageEntityMentionName,MessageMediaPhoto, ChannelParticipantsBots)
@@ -12,7 +12,7 @@ JAVES_NNAME = str(ALIVE_NAME)
 from telethon.events import ChatAction
 
 #@bot.on(rekcah05(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
-@bot.on(outgoing=True, pattern="^!gban(?: |$)(.*)")
+@command(outgoing=True, pattern="^!gban(?: |$)(.*)")
 async def startgban(rk): 
    lazy = rk ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
    if not sender.id == me.id:
@@ -63,7 +63,7 @@ async def startgban(rk):
    return await rkp.edit(f"`{JAVES_NNAME}:` **Gbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , Blocked user and added to Gban watch **") 
    
 #@bot.on(rekcah05(pattern=f"ungban(?: |$)(.*)", allow_sudo=True))
-@bot.on(outgoing=True, pattern="^!ungban(?: |$)(.*)")
+@command(outgoing=True, pattern="^!ungban(?: |$)(.*)")
 async def regressgban(rk):
    lazy = rk ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
    if not sender.id == me.id:
