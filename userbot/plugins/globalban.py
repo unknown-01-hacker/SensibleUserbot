@@ -63,9 +63,7 @@ from userbot import bot, bot
 
 @bot.on(admin_cmd(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
 @borg.on(outgoing=True, pattern="^.gban(?: |$)(.*)")
-        await event.edit("`processing...`")
-   else:
-    	("`processing...`")      
+        await event.edit("`processing...`")   
    await event.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
    if is_private:       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
