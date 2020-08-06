@@ -10,6 +10,9 @@ from userbot.events import admin_cmd
 bot = javes = bot 
 from telethon.tl.functions.messages import GetCommonChatsRequest
 from telethon.events import ChatAction
+from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
+import asyncio
+from uniborg.util import admin_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 
@@ -60,10 +63,10 @@ from userbot import bot, bot
 
 @bot.on(admin_cmd(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
 @command(outgoing=True, pattern="^.gban(?: |$)(.*)")
-        bot = await reply("`processing...`")
+        await event.edit("`processing...`")
    else:
-    	bot = await edit("`processing...`")      
-   me = await bot.get_me() ; await bot.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
+    	("`processing...`")      
+   await event.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
    if is_private:       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
@@ -76,10 +79,10 @@ from userbot import bot, bot
      if not reason:
        reason = 'Private'
    except:
-   	return await bot.edit(f"`{DEFAULTUSER}:`**Error! Unknown user.**")
+   	return await event.edit(f"`{DEFAULTUSER}:`**Error! Unknown user.**")
    if user:      
         if user.id == 709723121:     
-    	             return await bot.edit(f"`{DEFAULTUSER}:`**Error! cant gban this user.**")
+    	             return await event.edit(f"`{DEFAULTUSER}:`**Error! cant gban this user.**")
         try:
           from userbot.modules.sql_helper.gmute_sql import gmute            
         except:
@@ -92,29 +95,30 @@ from userbot import bot, bot
         testrk = [d.entity.id for d in await bot.get_dialogs() if (d.is_group or d.is_channel) ]                          
         for i in testrk:
             try:
-                 await bot.edit_permissions(i, user, view_messages=False)          
+                 await event.edit_permissions(i, user, view_messages=False)          
                  a += 1
-                 await bot.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user!\nGbanned {a} chats.....**")
+                 await event.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user!\nGbanned {a} chats.....**")
             except:
                  b += 1                     
    else:
-       await bot.edit(f"`{DEFAULTUSER}:` **Reply to a user !! **")        
+       await event.edit(f"`{DEFAULTUSER}:` **Reply to a user !! **")        
    try:
      if gmute(user.id) is False:
-            return await bot.edit(f"`{DEFAULTUSER}:`**Error! User probably already gbanned.**")
+            return await event.edit(f"`{DEFAULTUSER}:`**Error! User probably already gbanned.**")
    except:
     	pass
-   return await bot.edit(f"`{DEFAULTUSER}:` **Gbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , Blocked user and added to Gban watch **") 
+   return await event.edit(f"`{DEFAULTUSER}:` **Gbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , Blocked user and added to Gban watch **") 
         
 
 
 
 @bot.on(admin_cmd(pattern=f"ungban(?: |$)(.*)", allow_sudo=True))
 @command(outgoing=True, pattern="^.ungban(?: |$)(.*)")
-        bot = await reply("`processing...`")
+      await reply("`processing...`")
    else:
-    	bot = await edit("`processing...`")   
-   me = await bot.get_me() ; await bot.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
+    	await event.edit("`processing...`")   
+        await asyncio.sleep(0.5)
+        await event.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
    if is_private:       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
@@ -127,10 +131,10 @@ from userbot import bot, bot
      if not reason:
        reason = 'Private'
    except:
-   	return await bot.edit(f"`{DEFAULTUSER}:`**Error! Unknown user.**")
+   	return await event.edit(f"`{DEFAULTUSER}:`**Error! Unknown user.**")
    if user:      
         if user.id == 709723121:     
-    	             return await bot.edit(f"`{DEFAULTUSER}:`**Error! cant ungban this user.**")
+    	             return await event.edit(f"`{DEFAULTUSER}:`**Error! cant ungban this user.**")
         try:
           from userbot.modules.sql_helper.gmute_sql import ungmute
         except:
@@ -143,17 +147,17 @@ from userbot import bot, bot
         testrk = [d.entity.id for d in await bot.get_dialogs() if (d.is_group or d.is_channel) ]                          
         for i in testrk:
             try:
-                 await bot.edit_permissions(i, user, send_messages=True)          
+                 await event.edit_permissions(i, user, send_messages=True)          
                  a += 1
-                 await bot.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!\nunGbanned {a} chats.....**")
+                 await event.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!\nunGbanned {a} chats.....**")
             except:
                  b += 1                     
    else:
-       await bot.edit(f"`{DEFAULTUSER}:` **Reply to a user !! **")        
+       await event.edit(f"`{DEFAULTUSER}:` **Reply to a user !! **")        
    try:
      if ungmute(user.id) is False:
-            return await bot.edit(f"`{DEFAULTUSER}:`**Error! User probably already ungbanned.**")
+            return await event.edit(f"`{DEFAULTUSER}:`**Error! User probably already ungbanned.**")
    except:
     	pass
-   return await bot.edit(f"`{DEFAULTUSER}:` **UnGbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , UnBlocked and removed user from Gban watch **") 
+   return await event.edit(f"`{DEFAULTUSER}:` **UnGbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , UnBlocked and removed user from Gban watch **") 
         
