@@ -120,7 +120,7 @@ async def regressgban(event):
     	await event.edit("`processing...`")   
         await asyncio.sleep(0.5)
         await event.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!**")
-   if is_private:       
+   if event.is_private::       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
    	chat_title = chat.title  
