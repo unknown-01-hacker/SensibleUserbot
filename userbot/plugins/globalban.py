@@ -69,7 +69,7 @@ async def startgban(event):
         await event.edit("`In Process`")   
         await asyncio.sleep(0.5)
         await event.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user! #GBAN**")
-   if event.is_private::       
+   if event.is_private:      
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
    	chat_title = chat.title  
@@ -120,7 +120,7 @@ async def regressgban(event):
     	await event.edit("`processing...`")   
         await asyncio.sleep(0.5)
         await event.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!**")
-   if event.is_private::       
+   if event.is_private:       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
    	chat_title = chat.title  
