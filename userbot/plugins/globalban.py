@@ -12,7 +12,7 @@ from telethon.tl.functions.messages import GetCommonChatsRequest
 from telethon.events import ChatAction
 from userbot.plugins.sql_helper.mute_sql import is_muted, mute, unmute
 import asyncio
-from uniborg.util import admin_cmd
+from uniborg.on.util import admin_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 
@@ -62,7 +62,7 @@ from userbot import bot, bot
                    
 
 @bot.on(admin_cmd(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
-@command(outgoing=True, pattern="^.gban(?: |$)(.*)")
+@borg.on(outgoing=True, pattern="^.gban(?: |$)(.*)")
         await event.edit("`processing...`")
    else:
     	("`processing...`")      
@@ -113,7 +113,7 @@ from userbot import bot, bot
 
 
 @bot.on(admin_cmd(pattern=f"ungban(?: |$)(.*)", allow_sudo=True))
-@command(outgoing=True, pattern="^.ungban(?: |$)(.*)")
+@borg.on(outgoing=True, pattern="^.ungban(?: |$)(.*)")
       await reply("`processing...`")
    else:
     	await event.edit("`processing...`")   
