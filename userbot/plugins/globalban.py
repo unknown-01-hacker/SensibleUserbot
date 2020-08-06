@@ -66,7 +66,7 @@ from userbot import bot, bot
 async def startgban(event):
         await event.edit("`In Process`")   
         await asyncio.sleep(0.5)
-   await event.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
+        await event.edit(f"`{DEFAULTUSER}:` **Requesting  to gban user! #GBAN**")
    if is_private:       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
@@ -117,7 +117,7 @@ async def startgban(event):
 async def regressgban(event):
     	await event.edit("`processing...`")   
         await asyncio.sleep(0.5)
-        await event.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await get_chat() ; a = b = 0
+        await event.edit(f"`{DEFAULTUSER}:` **Requesting  to ungban user!**")
    if is_private:       
    	user = chat ; reason = pattern_match.group(1) ; chat_title = 'PM'  
    else:
