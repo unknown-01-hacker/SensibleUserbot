@@ -5,7 +5,6 @@ from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import (PeerChat, PeerChannel,ChannelParticipantsAdmins, ChatAdminRights,ChatBannedRights, MessageEntityMentionName,MessageMediaPhoto, ChannelParticipantsBots)
 from telethon.tl.types import Channel
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-from userbot.events import rekcah05
 client = javes = bot 
 from telethon.tl.functions.messages import GetCommonChatsRequest
 JAVES_NNAME = str(ALIVE_NAME) 
