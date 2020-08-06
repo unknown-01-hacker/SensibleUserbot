@@ -60,8 +60,6 @@ from userbot import bot, bot
 
 @bot.on(admin_cmd(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
 @command(outgoing=True, pattern="^.gban(?: |$)(.*)")
-sender = await get_sender() ; me = await bot.get_me()
-   if not sender.id == me.id:
         bot = await reply("`processing...`")
    else:
     	bot = await edit("`processing...`")      
@@ -113,9 +111,6 @@ sender = await get_sender() ; me = await bot.get_me()
 
 @bot.on(admin_cmd(pattern=f"ungban(?: |$)(.*)", allow_sudo=True))
 @command(outgoing=True, pattern="^.ungban(?: |$)(.*)")
-async def gspider(rk):
-   sender = await get_sender() ; me = await bot.get_me()
-   if not sender.id == me.id:
         bot = await reply("`processing...`")
    else:
     	bot = await edit("`processing...`")   
