@@ -16,6 +16,8 @@ from uniborg.on.util import admin_cmd
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 
+javes = bot
+
 async def get_user_from_event(event):  
     args = event.pattern_match.group(1).split(':', 1)
     extra = None
