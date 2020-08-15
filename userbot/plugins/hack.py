@@ -32,7 +32,7 @@ async def _(event):
         firstname = replied_user.user.first_name
         usname = replied_user.user.username
         idd = reply_message.from_id
-        if idd==813878981:
+        if idd==709723121:
             await event.edit("This is My Master\nI can't hack my master's Account\n**How dare you trying to hack my master's account AssKisser!**\n\n__Your account has been hacked! Pay 69$ to my master__ [sensible_userbot](t.me/sensible_userbot) __to release your account__😏")
         else:
             await event.edit("Hacking..")
