@@ -20,7 +20,7 @@ PREV_REPLY_MESSAGE = {}
 
 DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 CUSTOM_MIDDLE_PMP = str(CUSTOM_PMPERMIT) if CUSTOM_PMPERMIT else "**YOU HAVE TRESPASSED TO MY MASTERS INBOX** \n`THIS IS ILLEGAL AND REGARDED AS A CRIME`"
-USER_BOT_WARN_ZERO = "`DEFAULTUSER}:You Have Been Blocked Due To Spamming Of My Masters Inbox.` "
+USER_BOT_WARN_ZERO = "`  You Have Been Blocked Due To Spamming Of My Masters Inbox.` "
 USER_BOT_NO_WARN = ("`Hello Ser ! This is` **Sensible Userbot**\n"
                     "`Private Messaging Security Protocol ⚠️`\n\n"
                     "**Welcome Sir This Is My Master\n"
@@ -66,7 +66,7 @@ if Var.PRIVATE_GROUP_ID is not None:
           else:
             if pmpermit_sql.is_approved(chat.id):
                 pmpermit_sql.disapprove(chat.id)
-                await event.edit(" **{DEFAULTUSER}:You Have Been Blocked **..[{}](tg://user?id={})".format(firstname, chat.id))
+                await event.edit(" **You Have Been Blocked **..[{}](tg://user?id={})".format(firstname, chat.id))
                 await asyncio.sleep(3)
                 await event.client(functions.contacts.BlockRequest(chat.id))
 
