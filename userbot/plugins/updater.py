@@ -7,7 +7,9 @@ import os
 import sys
 import asyncio
 from userbot.utils import admin_cmd
+from userbot import ALIVE_NAME
 
+DEFAULTUSER = str(ALIVE_NAME) if ALIVE_NAME else "Set ALIVE_NAME in config vars in Heroku"
 # -- Constants -- #
 IS_SELECTED_DIFFERENT_BRANCH = (
     "looks like a custom branch {branch_name} "
@@ -140,7 +142,7 @@ def generate_change_log(git_repo, diff_marker):
 
 async def deploy_start(bot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
-    await message.edit("The Latest Branch** `Master` **Has Been Pushed To Heroku** \n**Now Trying A Restart To Complete Updation Process ⚠️ !!** To Check If I am Alive Just Do `.alive` or `.help` !!!! ThankYou For Using Sensible Userbot Service (◍•ᴗ•◍)❤")
+    await message.edit("{DEFAULTUSER} : Updating Sensible Userbot \n ✔ Got Updates From Official RepoSitory \n ✔ Getting Code From Master Branch \n ✔ Restarting Dynos \n ✔ Under 10 mins sensible userbot will be up with latest updates \n ✔Thanks For Using Sensible userbot ")
     await remote.push(refspec=refspec)
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
