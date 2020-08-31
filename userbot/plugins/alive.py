@@ -1,5 +1,4 @@
-"""Check if userbot alive. If you change these, you become the gayest gay such that even the gay world will disown you."""
-#IMG CREDITS: @WhySooSerious
+"""This Command Checks That Userbot Is Alive And Working Properly Or Not"""
 import asyncio
 from telethon import events
 from telethon.tl.types import ChannelParticipantsAdmins
@@ -19,11 +18,11 @@ ALIVE_caption += "**Sensible  OS** : `3.14`\n\n"
 ALIVE_caption += "**Current Sat** : `Sensible Userbot Sat-2.95`\n\n"
 ALIVE_caption += f"**My Boss** : {DEFAULTUSER} \n\n"
 ALIVE_caption += "**Heroku Database** : `AWS - Working Properly`\n\n"
-ALIVE_caption += "**Bot Made By @ceowhitehatcracks \n\n"
+ALIVE_caption += "Bot Made By @ceowhitehatcracks \n\n"
 ALIVE_caption += "Copyright By [CEOWHITEHATCRACKS](GitHub.com/spandey112)\n\n"
 ALIVE_caption += "[Deploy SensibleUserbot](GitHub.com/spandey112/SensibleUserbot)"
 #@command(outgoing=True, pattern="^.alive$")
-@borg.on(admin_cmd(pattern=r"alive"))
+@borg.on(admin_cmd(pattern=r"alive" , allow_sudo=True))
 async def amireallyalive(alive):
     """ For .alive command, check if the bot is running.  """
     await alive.delete()

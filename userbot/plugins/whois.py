@@ -155,7 +155,7 @@ async def get_full_user(event):
 async def who(event):
 
     await event.edit(
-        "`Sit tight while I steal some data from Mark Zuckerburg...`")
+        "`Wait Master Let Me Get Some Info Of This Person`")
 
     if not os.path.isdir(TEMP_DOWNLOAD_DIRECTORY):
         os.makedirs(TEMP_DOWNLOAD_DIRECTORY)
@@ -165,7 +165,7 @@ async def who(event):
     try:
         photo, caption = await fetch_info(replied_user, event)
     except AttributeError:
-        event.edit("`Could not fetch info of that user.`")
+        event.edit("`Sorry boss :___X I Cant Fetch Info Of This User ! May be This is not a user`")
         return
 
     message_id_to_reply = event.message.reply_to_msg_id

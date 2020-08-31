@@ -29,11 +29,11 @@ from userbot.utils import admin_cmd
 # =================== CONSTANT ===================
 PP_TOO_SMOL = "`The image is too small`"
 PP_ERROR = "`Failure while processing the image`"
-NO_ADMIN = "`I am not an admin nub nibba!`"
-NO_PERM = "`I don't have sufficient permissions! This is so sed. Alexa play Tera Baap Aaya`"
+NO_ADMIN = "`My master I Am Not A Admin :X!`"
+NO_PERM = "`Sed ! I Donot Have Enough permisison :-X Phuck Hey Google Play Dil Wale Puchde Ne Chaa`"
 NO_SQL = "`Running on Non-SQL mode!`"
 
-CHAT_PP_CHANGED = "`Chat Picture Changed`"
+CHAT_PP_CHANGED = "`I Have Changed The Chat Picture :D Master`"
 CHAT_PP_ERROR = "`Some issue with updating the pic,`" \
                 "`maybe coz I'm not an admin,`" \
                 "`or don't have enough rights.`"
@@ -143,7 +143,7 @@ async def promote(promt):
     try:
         await promt.client(
             EditAdminRequest(promt.chat_id, user.id, new_rights, rank))
-        await promt.edit("`Promoted Successfully! Now gib Party 🥳`")
+        await promt.edit("`{DEFAULTUSER} : You Have Been Promoted :D Do Your Work Sincerly `")
 
     # If Telethon spit BadRequestError, assume
     # we don't have Promote permission
@@ -200,7 +200,7 @@ async def demote(dmod):
     except BadRequestError:
         await dmod.edit(NO_PERM)
         return
-    await dmod.edit("`Demoted this retard Successfully!`")
+    await dmod.edit("`{DEFAULTUSER} : You Didnt Do Your Work Sincerly Hence You Have Been Demoted`")
 
     # Announce to the logging group if we have demoted successfully
     if BOTLOG:
