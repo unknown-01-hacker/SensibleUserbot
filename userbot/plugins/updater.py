@@ -142,7 +142,7 @@ def generate_change_log(git_repo, diff_marker):
 
 async def deploy_start(bot, message, refspec, remote):
     await message.edit(RESTARTING_APP)
-    await message.edit("{DEFAULTUSER} : Updating Sensible Userbot \n ✔ Got Updates From Official RepoSitory \n ✔ Getting Code From Master Branch \n ✔ Restarting Dynos \n ✔ Under 10 mins sensible userbot will be up with latest updates \n ✔Thanks For Using Sensible userbot ")
+    await message.edit(" {DEFAULTUSER} : Updating Sensible Userbot \n ✔ Got Updates From Official RepoSitory \n ✔ Getting Code From Master Branch \n ✔ Restarting Dynos \n ✔ Under 10 mins sensible userbot will be up with latest updates \n ✔Thanks For Using Sensible userbot ")
     await remote.push(refspec=refspec)
     await bot.disconnect()
     os.execl(sys.executable, sys.executable, *sys.argv)
