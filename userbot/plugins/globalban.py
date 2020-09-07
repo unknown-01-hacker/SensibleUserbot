@@ -1,6 +1,12 @@
-  
-# GOT FROM HERE https://t.me/pldhsys/358 ( JAVES USERBOT ) ( MAIN CREATOR )
-# PORTED BY @MR_CE0
+#
+#███╗░░░███╗██████╗░░█████╗░███████╗░█████╗░
+#████╗░████║██╔══██╗██╔══██╗██╔════╝██╔══██╗
+#██╔████╔██║██████╔╝██║░░╚═╝█████╗░░██║░░██║
+#██║╚██╔╝██║██╔══██╗██║░░██╗██╔══╝░░██║░░██║
+#██║░╚═╝░██║██║░░██║╚█████╔╝███████╗╚█████╔╝
+#╚═╝░░░░░╚═╝╚═╝░░╚═╝░╚════╝░╚══════╝░╚════╝░
+
+
 from userbot import bot, CMD_HELP
 import asyncio
 from telethon import events
@@ -19,7 +25,7 @@ from telethon.events import ChatAction
 async def gspider(userbot): 
    lol = userbot ; sender = await lol.get_sender() ; me = await lol.client.get_me()
    if not sender.id == me.id:
-        friday = await lol.reply("Initating Global ban")
+        friday = await lol.reply("Gbanning This User !")
    else:
     	friday = await lol.edit("Wait Processing.....")      
    me = await userbot.client.get_me() ; await friday.edit(f"Global Ban Is Coming ! Wait And Watch You Nigga") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await userbot.get_chat() ; a = b = 0
@@ -53,7 +59,7 @@ async def gspider(userbot):
             try:
                  await userbot.client.edit_permissions(i, user, view_messages=False)          
                  a += 1
-                 await friday.edit(f"**Global Ban Issued  /||\ Total Affected Chats **: `{a}`")
+                 await friday.edit(f"**GBANNED // Total Affected Chats **: `{a}`")
             except:
                  b += 1                     
    else:
@@ -75,7 +81,7 @@ async def gspider(userbot):
    if not sender.id == me.id:
         friday = await lol.reply("`Wait Let Me Process`")
    else:
-    	friday = await lol.edit("Master Wait ! Gbanning user ")   
+    	friday = await lol.edit("One Min ! ")   
    me = await userbot.client.get_me() ; await friday.edit(f"Trying To Ungban User !") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await userbot.get_chat() ; a = b = 0
    if userbot.is_private:       
    	user = userbot.chat ; reason = userbot.pattern_match.group(1) ; chat_title = 'PM'  
@@ -122,8 +128,8 @@ async def gspider(userbot):
 
 
 CMD_HELP.update({
-"globalban":
-".gban <username> / <userid> / <reply to a user>\
+    "gban-gmute":
+    ".gban <username> / <userid> / <reply to a user>\
 \n**Usage**: Globel ban the person in all groups, channels , block in pm , add gban watch (use with solution) \
 \n\n.ungban <username> / <userid> / <reply to a user>\
 \n**Usage**: unban user from all groups, channels , remove user from gban watch.\
@@ -131,4 +137,6 @@ CMD_HELP.update({
 \n**Usage**: Globel mute the user  \
 \n\n.ungmute <username> / <userid> / <reply to a user>\
 \n**Usage**: Remove user form gmute list \
-\n\n**All commands support sudo**\"
+\n\n**All commands support sudo**\
+"
+})
