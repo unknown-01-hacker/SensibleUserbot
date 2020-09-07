@@ -1,117 +1,135 @@
-from userbot import bot, BOTLOG_CHATID, ALIVE_NAME, CMD_LIST
+  
+# GOT FROM HERE https://t.me/pldhsys/358 ( JAVES USERBOT ) ( MAIN CREATOR )
+# PORTED BY @STARKXD
+from userbot import bot, CMD_HELP
 import asyncio
 from telethon import events
 from telethon.tl.functions.channels import EditBannedRequest
 from telethon.tl.types import (PeerChat, PeerChannel,ChannelParticipantsAdmins, ChatAdminRights,ChatBannedRights, MessageEntityMentionName,MessageMediaPhoto, ChannelParticipantsBots)
 from telethon.tl.types import Channel
 from telethon.tl.functions.contacts import BlockRequest, UnblockRequest
-client = javes = bot 
 from telethon.tl.functions.messages import GetCommonChatsRequest
-JAVES_NNAME = str(ALIVE_NAME) 
 from telethon.events import ChatAction
+ 
 
-#@bot.on(rekcah05(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
-@command(outgoing=True, pattern="^!gban(?: |$)(.*)")
-async def startgban(rk): 
-   lazy = rk ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
+
+
+#@javes.on(rekcah05(pattern=f"gban(?: |$)(.*)", allow_sudo=True))
+@command(outgoing=True, pattern="^.gban(?: |$)(.*)")
+async def gspider(userbot): 
+   lol = userbot ; sender = await lol.get_sender() ; me = await lol.client.get_me()
    if not sender.id == me.id:
-        rkp = await lazy.reply("`processing...`")
+        friday = await lol.reply("Initating Global ban")
    else:
-    	rkp = await lazy.edit("`processing...`")      
-   me = await rk.client.get_me() ; await rkp.edit(f"`{JAVES_NNAME}:` **Requesting  to gban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await rk.get_chat() ; a = b = 0
-   if rk.is_private:       
-   	user = rk.chat ; reason = rk.pattern_match.group(1) ; chat_title = 'PM'  
+    	friday = await lol.edit("Wait Processing.....")      
+   me = await userbot.client.get_me() ; await friday.edit(f"Global Ban Is Coming ! Wait And Watch You Nigga") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await userbot.get_chat() ; a = b = 0
+   if userbot.is_private:       
+   	user = userbot.chat ; reason = userbot.pattern_match.group(1) ; chat_title = 'PM'  
    else:
-   	chat_title = rk.chat.title  
+   	chat_title = userbot.chat.title  
    try:       
-    user, reason = await get_user_from_event(rk)  
+    user, reason = await get_user_from_event(userbot)  
    except:
       pass
    try:
      if not reason:
        reason = 'Private'
    except:
-   	return await rkp.edit(f"`{JAVES_NNAME}:`**Error! Unknown user.**")
+   	return await friday.edit(f"**You Cant Use In Pvt Chats // Group!**")
    if user:      
         if user.id == 709723121:     
-    	             return await rkp.edit(f"`{JAVES_NNAME}:`**Error! This Is My Creator How Am i Supposed To Gban him.**")
+    	             return await friday.edit(f"**Didn't , Your Father Teach You ? That You Cant Gban Dev**")
         try:
           from userbot.modules.sql_helper.gmute_sql import gmute            
         except:
    	     pass
         try:
-          await rk.client(BlockRequest(user))
+          await userbot.client(BlockRequest(user))
           block = 'True'
         except:      
            pass
-        testrk = [d.entity.id for d in await rk.client.get_dialogs() if (d.is_group or d.is_channel) ]                          
-        for i in testrk:
+        testuserbot = [d.entity.id for d in await userbot.client.get_dialogs() if (d.is_group or d.is_channel) ]                          
+        for i in testuserbot:
             try:
-                 await rk.client.edit_permissions(i, user, view_messages=False)          
+                 await userbot.client.edit_permissions(i, user, view_messages=False)          
                  a += 1
-                 await rkp.edit(f"`{JAVES_NNAME}:` **Requesting  to gban user!\nGbanned {a} chats.....**")
+                 await friday.edit(f"**Global Ban Issued  /||\ Total Affected Chats **: `{a}`")
             except:
                  b += 1                     
    else:
-       await rkp.edit(f"`{JAVES_NNAME}:` **Reply to a user !! **")        
+       await friday.edit(f"**Reply to a user !!**")        
    try:
      if gmute(user.id) is False:
-            return await rkp.edit(f"`{JAVES_NNAME}:`**Error! User probably already gbanned.**")
+            return await friday.edit(f"**Error! User probably already gbanned.**")
    except:
     	pass
-   return await rkp.edit(f"`{JAVES_NNAME}:` **Gbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , Blocked user and added to Gban watch **") 
-   
-#@bot.on(rekcah05(pattern=f"ungban(?: |$)(.*)", allow_sudo=True))
-@command(outgoing=True, pattern="^!ungban(?: |$)(.*)")
-async def regressgban(rk):
-   lazy = rk ; sender = await lazy.get_sender() ; me = await lazy.client.get_me()
+   return await friday.edit(f"**Gbanned [{user.first_name}](tg://user?id={user.id}) Affected Chats : {a} **") 
+        
+
+
+
+#@javes.on(rekcah05(pattern=f"ungban(?: |$)(.*)", allow_sudo=True))
+@command(outgoing=True, pattern="^.ungban(?: |$)(.*)")
+async def gspider(userbot):
+   lol = userbot ; sender = await lol.get_sender() ; me = await lol.client.get_me()
    if not sender.id == me.id:
-        rkp = await lazy.reply("`processing...`")
+        friday = await lol.reply("`Wait Let Me Process`")
    else:
-    	rkp = await lazy.edit("`processing...`")   
-   me = await rk.client.get_me() ; await rkp.edit(f"`{JAVES_NNAME}:` **Requesting  to ungban user!**") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await rk.get_chat() ; a = b = 0
-   if rk.is_private:       
-   	user = rk.chat ; reason = rk.pattern_match.group(1) ; chat_title = 'PM'  
+    	friday = await lol.edit("Master Wait ! Gbanning user ")   
+   me = await userbot.client.get_me() ; await friday.edit(f"Trying To Ungban User !") ; my_mention = "[{}](tg://user?id={})".format(me.first_name, me.id) ; my_username = f"@{me.username}" if me.username else my_mention ; chat = await userbot.get_chat() ; a = b = 0
+   if userbot.is_private:       
+   	user = userbot.chat ; reason = userbot.pattern_match.group(1) ; chat_title = 'PM'  
    else:
-   	chat_title = rk.chat.title  
+   	chat_title = userbot.chat.title  
    try:       
-    user, reason = await get_user_from_event(rk)  
+    user, reason = await get_user_from_event(userbot)  
    except:
       pass
    try:
      if not reason:
        reason = 'Private'
    except:
-   	return await rkp.edit(f"`{JAVES_NNAME}:`**Error! Unknown user.**")
+   	return await friday.edit("Use In Public Chats , Or In PM")
    if user:      
         if user.id == 709723121:     
-    	             return await rkp.edit(f"`{JAVES_NNAME}:`**Error! cant ungban this user.**")
+    	             return await friday.edit("**You Cant Ungban A Dev !**")
         try:
           from userbot.modules.sql_helper.gmute_sql import ungmute
         except:
    	     pass
         try:
-          await rk.client(UnblockRequest(user))
+          await userbot.client(UnblockRequest(user))
           block = 'True'
         except:      
            pass
-        testrk = [d.entity.id for d in await rk.client.get_dialogs() if (d.is_group or d.is_channel) ]                          
-        for i in testrk:
+        testuserbot = [d.entity.id for d in await userbot.client.get_dialogs() if (d.is_group or d.is_channel) ]                          
+        for i in testuserbot:
             try:
-                 await rk.client.edit_permissions(i, user, send_messages=True)          
+                 await userbot.client.edit_permissions(i, user, send_messages=True)          
                  a += 1
-                 await rkp.edit(f"`{JAVES_NNAME}:` **Requesting  to ungban user!\nunGbanned {a} chats.....**")
+                 await friday.edit(f"**UNGBANNING // AFFECTED CHATS - {a} **")
             except:
                  b += 1                     
    else:
-       await rkp.edit(f"`{JAVES_NNAME}:` **Reply to a user !! **")        
+       await friday.edit("**Reply to a user !!**")        
    try:
      if ungmute(user.id) is False:
-            return await rkp.edit(f"`{JAVES_NNAME}:`**Error! User probably already ungbanned.**")
+            return await friday.edit("**Error! User probably already ungbanned.**")
    except:
     	pass
-   return await rkp.edit(f"`{JAVES_NNAME}:` **UnGbanned [{user.first_name}](tg://user?id={user.id}) in {a} chat(s) , UnBlocked and removed user from Gban watch **") 
+   return await friday.edit(f"**UNGBANNED // USER - [{user.first_name}](tg://user?id={user.id}) CHATS : {a} **") 
         
 
-   
-   
+
+CMD_HELP.update({
+    "gban-gmute":
+    ".gban <username> / <userid> / <reply to a user>\
+\n**Usage**: Globel ban the person in all groups, channels , block in pm , add gban watch (use with solution) \
+\n\n.ungban <username> / <userid> / <reply to a user>\
+\n**Usage**: unban user from all groups, channels , remove user from gban watch.\
+\n\n.gmute <username> / <userid> / <reply to a user>\
+\n**Usage**: Globel mute the user  \
+\n\n.ungmute <username> / <userid> / <reply to a user>\
+\n**Usage**: Remove user form gmute list \
+\n\n**All commands support sudo**\
+"
