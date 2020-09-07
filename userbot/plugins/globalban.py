@@ -5,7 +5,7 @@
 #██║╚██╔╝██║██╔══██╗██║░░██╗██╔══╝░░██║░░██║
 #██║░╚═╝░██║██║░░██║╚█████╔╝███████╗╚█████╔╝
 #╚═╝░░░░░╚═╝╚═╝░░╚═╝░╚════╝░╚══════╝░╚════╝░
-
+#
 
 from userbot import bot, CMD_HELP
 import asyncio
@@ -128,7 +128,7 @@ async def gspider(userbot):
 
 
 CMD_HELP.update({
-    "gban-gmute":
+    "GLOBALBAN":
     ".gban <username> / <userid> / <reply to a user>\
 \n**Usage**: Globel ban the person in all groups, channels , block in pm , add gban watch (use with solution) \
 \n\n.ungban <username> / <userid> / <reply to a user>\
